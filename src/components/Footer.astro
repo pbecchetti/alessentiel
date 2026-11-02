@@ -1,0 +1,19 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© {year} A l'essentiel, ensemble</p>
+    <p>
+      <a href="https://www.linkedin.com/in/bruno-becchetti-08199333/" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--ink); color: var(--mist); padding-block: 2rem; }
+  .footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+  .footer p { margin: 0; font-size: var(--step--1); }
+  .footer a { color: var(--paper); }
+</style>

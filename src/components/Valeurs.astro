@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import confiance from "../assets/images/handshake-icon.png";
+import ecoute from "../assets/images/listen-icon.svg";
+import simplicite from "../assets/images/puzzle-icon.svg";
+import proximite from "../assets/images/together-icon.png";
+
+const valeurs = [
+  {
+    icon: confiance,
+    title: "Confiance",
+    text: [
+      "Persuadé que la réussite repose sur le partage et la co-construction, j’attache une grande importance à la confiance.",
+      "La confiance se donne a priori, mais se gagne a posteriori.",
+    ],
+  },
+  {
+    icon: ecoute,
+    title: "Écoute",
+    text: [
+      "Je m’efforce que mes réponses soient toujours adaptées aux besoins de chacun.",
+      "Je suis ouvert d’esprit, humble et disponible.",
+    ],
+  },
+  {
+    icon: simplicite,
+    title: "Simplicité",
+    text: [
+      "En allant à l’essentiel et en m’y tenant, je m’efforce de simplifier ce qui est complexe. J’utilise un langage clair et accessible à tous.",
+      "J’utilise des méthodes simples, de bon sens et pertinentes.",
+    ],
+  },
+  {
+    icon: proximite,
+    title: "Proximité",
+    text: [
+      "Je donne de l’attention à chacun.",
+      "Mes interventions sont adaptées en permanence aux spécificités du contexte.",
+    ],
+  },
+];
+---
+
+<section id="valeurs" class="section section--mist">
+  <div class="wrap">
+    <h2>Mes valeurs</h2>
+    <div class="valeurs">
+      {
+        valeurs.map((v) => (
+          <div class="valeur">
+            <Image
+              src={v.icon}
+              alt=""
+              width={56}
+              height={56}
+              class="valeur__icon"
+            />
+            <h3>{v.title}</h3>
+            {v.text.map((p) => (
+              <p>{p}</p>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+  .valeurs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 2.5rem;
+  }
+  .valeur__icon {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+  .valeur p {
+    font-size: var(--step--1);
+    color: var(--slate);
+  }
+</style>

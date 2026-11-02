@@ -1,0 +1,70 @@
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource-variable/newsreader';
+@import '@fontsource-variable/newsreader/wght-italic.css';
+
+:root {
+  --ink: #1e2b30;
+  --slate: #55656b;
+  --savanna: #a8742a;      /* accent décoratif (filets, puces) */
+  --savanna-text: #85591b; /* accent lisible pour les liens */
+  --mist: #eef1ef;
+  --paper: #ffffff;
+
+  --sans: 'Instrument Sans Variable', system-ui, sans-serif;
+  --serif: 'Newsreader Variable', Georgia, serif;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3125rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2rem, 4vw, 2.75rem);
+  --step-4: clamp(2.5rem, 6vw, 4.5rem);
+
+  --wrap: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section: clamp(4rem, 9vw, 7rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { line-height: 1.15; margin: 0 0 0.6em; font-weight: 600; letter-spacing: -0.01em; }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); }
+p, ul { margin: 0 0 1em; }
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--savanna-text); text-underline-offset: 0.2em; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--savanna); outline-offset: 3px; }
+
+.wrap { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
+.section { padding-block: var(--section); }
+.section--mist { background: var(--mist); }
+.prose { max-width: 66ch; }
+
+.button {
+  display: inline-block;
+  padding: 0.8em 1.4em;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover { background: var(--ink); color: var(--paper); }
+
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 100; background: var(--paper); padding: 0.5em 1em; }

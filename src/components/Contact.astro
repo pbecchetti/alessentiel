@@ -1,0 +1,30 @@
+---
+const email = 'bruno.becchetti@gmail.com';
+---
+
+<section id="contact" class="section">
+  <div class="wrap contact">
+    <h2>Parlons de votre projet</h2>
+    <p>Un besoin de formation, d’accompagnement ou de conseil ? Écrivez-moi, je vous réponds rapidement.</p>
+    <a href={`mailto:${email}`} class="contact__email">{email}</a>
+    <p class="contact__alt">
+      ou retrouvez-moi sur <a href="https://www.linkedin.com/in/bruno-becchetti-08199333/" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .contact { text-align: center; }
+  .contact p { color: var(--slate); }
+  .contact__email {
+    display: inline-block;
+    margin-block: 1rem 1.5rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--step-3);
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+  .contact__email:hover { color: var(--savanna-text); }
+  .contact__alt { font-size: var(--step--1); }
+</style>

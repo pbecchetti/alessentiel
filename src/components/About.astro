@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import atelier from "../assets/images/team-meeting.jpg";
+import portrait from "../assets/images/bruno-becchetti.png";
+---
+
+<section id="a-propos" class="section">
+  <div class="wrap">
+    <div class="approche">
+      <div class="prose">
+        <h2>Formations et accompagnement sur mesure ou en sous-traitance</h2>
+        <p>
+          <strong>« A l’essentiel, ensemble »</strong>, cabinet de conseil et
+          formation, accompagne les entreprises, grandes, moyennes ou petites,
+          dans leurs réflexions, dans la réalisation de leur ambition et dans la
+          professionnalisation de leurs équipes.
+        </p>
+        <p>
+          « A l’essentiel, ensemble » se positionne exclusivement dans le
+          sur-mesure et l’unique, et privilégie pour cela la co-construction,
+          tant dans l’activité de conseil que de formation. Il intervient dans
+          le même esprit en sous-traitance pour les organismes de formation et
+          centres d’enseignement, en présentiel ou en distanciel pour des écoles
+          100 % en ligne.
+        </p>
+        <p>
+          Le concept : ensemble, recherchons les solutions, mettons-les en
+          œuvre, à votre rythme, avec pragmatisme, en impliquant votre
+          personnel. Élaborons ensemble les contenus des formations à la mesure
+          de vos besoins.
+        </p>
+      </div>
+      <Image
+        src={atelier}
+        alt="Groupe en atelier de travail autour d’une table"
+        widths={[480, 800]}
+        sizes="(min-width: 60rem) 40vw, 100vw"
+        class="approche__img"
+      />
+    </div>
+
+    <div class="bio">
+      <Image
+        src={portrait}
+        alt="Portrait de Bruno Becchetti"
+        width={280}
+        class="bio__img"
+      />
+      <div class="prose">
+        <h3>
+          Bruno Becchetti, consultant en accompagnement du changement et
+          formateur
+        </h3>
+        <p>
+          Après plus de 30 ans d’expériences opérationnelles et de consulting
+          interne en entreprise, Bruno Becchetti accompagne les PME et les
+          grands comptes dans le développement de leurs performances,
+          l’accompagnement sur leurs projets de transformation ainsi que sur la
+          conception et l’animation de formations dans les domaines du
+          management d’équipe, de la vente, de la relation client et du service.
+        </p>
+        <p>
+          Titulaire d’un diplôme de 3ᵉ cycle sur l’accompagnement des
+          organisations en mutation, il a saisi les opportunités de son parcours
+          professionnel riche et varié de manager des ventes, de chef de projet,
+          de consultant, de formateur et d’animateur de réseau pour travailler
+          plus particulièrement sur le management, la vente et la relation de
+          service au client, ainsi que sur les soft skills : toutes ces qualités
+          humaines, émotionnelles, relationnelles et comportementales
+          indispensables pour évoluer en toute confiance dans le monde de
+          demain.
+        </p>
+        <a href="/qui-suis-je/" class="button">En savoir plus sur moi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .approche,
+  .bio {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+  .bio {
+    margin-top: var(--section);
+    align-items: start;
+  }
+  @media (min-width: 60rem) {
+    .approche {
+      grid-template-columns: 1.2fr 1fr;
+    }
+    .bio {
+      grid-template-columns: 280px 1fr;
+    }
+  }
+  .approche__img {
+    border-radius: 4px;
+  }
+  .bio__img {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: min(100%, 280px);
+  }
+  .bio h3 {
+    font-size: var(--step-2);
+  }
+</style>

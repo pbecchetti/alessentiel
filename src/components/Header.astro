@@ -1,0 +1,62 @@
+---
+// Les ancres pointent vers "/#..." pour fonctionner aussi depuis les sous-pages
+const links = [
+  { href: '/#services', label: 'Services' },
+  { href: '/#valeurs', label: 'Valeurs' },
+  { href: '/#a-propos', label: 'À propos' },
+  { href: '/qui-suis-je/', label: 'Qui suis-je' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+
+<header class="header">
+  <div class="wrap header__inner">
+    <a href="/" class="logo">A l'essentiel</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgb(255 255 255 / 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--mist);
+  }
+  .header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    padding-block: 1rem;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--step-1);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    color: var(--slate);
+    text-decoration: none;
+    font-size: var(--step--1);
+    font-weight: 500;
+  }
+  nav a:hover { color: var(--ink); }
+</style>

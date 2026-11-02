@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import themesImg from '../assets/images/themes.png';
+
+const themes = [
+  {
+    title: 'Transverse & RH',
+    items: [
+      'Management de projet, leadership, management de sous-traitants…',
+      'Tutorat, formateur occasionnel, formateur, les entretiens (professionnel, annuel)',
+      'Titre professionnel (DP, EP…)',
+      'Bilan de compétences',
+    ],
+  },
+  {
+    title: 'Relation client',
+    text: 'Les compétences relationnelles, l’accueil au téléphone, l’accueil physique, l’expérience client, les attitudes service du personnel technique (techniciens, SAV…).',
+  },
+  {
+    title: 'Auteur – rédacteur',
+    items: ['Auteur, rédacteur, expert et correcteur de modules digitalisés', 'Ingénierie pédagogique'],
+  },
+  {
+    title: 'Management',
+    text: 'Manager au quotidien, manager en transverse, animer, accompagner et soutenir son équipe, outiller les managers (gestion du temps, entretiens, brief, situations difficiles…), le reporting…',
+  },
+  {
+    title: 'Communication & soft skills',
+    text: 'Le développement relationnel, la prise de parole, la gestion du stress et des situations difficiles, l’aisance relationnelle, la confiance en soi, l’assertivité…',
+  },
+  {
+    title: 'Marketing, vente, merchandising',
+    items: [
+      'Les fondamentaux : attractivité, présentation des offres, argumentation',
+      'Yield management',
+      'Les techniques de vente, la négociation, la vente additionnelle, la vente au SAV, la fidélisation…',
+    ],
+  },
+];
+---
+
+<section id="services" class="section">
+  <div class="wrap">
+    <div class="intro">
+      <h2>6 thèmes pour vous accompagner</h2>
+      <Image src={themesImg} alt="" width={320} class="intro__img" />
+    </div>
+
+    <div class="themes">
+      {themes.map((t) => (
+        <article class="theme">
+          <h3>{t.title}</h3>
+          {t.text && <p>{t.text}</p>}
+          {t.items && (
+            <ul>
+              {t.items.map((i) => <li>{i}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .intro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .intro h2 { max-width: 16ch; margin: 0; }
+  .intro__img { width: min(100%, 320px); }
+
+  .themes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 2.5rem 3rem;
+  }
+  .theme { border-top: 2px solid var(--savanna); padding-top: 1.25rem; }
+  .theme p, .theme ul { color: var(--slate); font-size: var(--step--1); line-height: 1.65; }
+  .theme ul { padding-left: 1.1em; }
+  .theme li + li { margin-top: 0.4em; }
+  .theme li::marker { color: var(--savanna); }
+</style>
