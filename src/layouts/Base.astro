@@ -1,7 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ogSource from '../assets/images/elephants.jpg';
 
 interface Props {
   title: string;
@@ -10,6 +12,44 @@ interface Props {
 
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+// Image affichée quand le lien est partagé (LinkedIn, Facebook, WhatsApp…)
+const og = await getImage({ src: ogSource, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const ogImage = new URL(og.src, Astro.site);
+
+// Données structurées : aident Google à comprendre qui vous êtes et ce que vous proposez
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://alessentiel.fr/#entreprise',
+  name: 'A l’essentiel, ensemble',
+  url: 'https://alessentiel.fr/',
+  image: ogImage.href,
+  description:
+    'Cabinet de conseil et formation sur mesure : management, relation client, vente, soft skills, accompagnement du changement.',
+  email: 'bruno.becchetti@gmail.com',
+  areaServed: { '@type': 'Country', name: 'France' },
+  knowsLanguage: 'fr',
+  founder: {
+    '@type': 'Person',
+    name: 'Bruno Becchetti',
+    jobTitle: 'Consultant en accompagnement du changement et formateur',
+    url: 'https://alessentiel.fr/qui-suis-je/',
+    sameAs: ['https://www.linkedin.com/in/bruno-becchetti-08199333/'],
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/bruno-becchetti-08199333/',
+    'https://www.facebook.com/Alessentielensemble/',
+  ],
+  knowsAbout: [
+    'Formation management',
+    'Formation relation client',
+    'Formation vente et négociation',
+    'Soft skills',
+    'Accompagnement du changement',
+    'Ingénierie pédagogique',
+    'Formation de formateurs',
+  ],
+};
 ---
 
 <!doctype html>
@@ -28,6 +68,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="A l'essentiel, ensemble" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
