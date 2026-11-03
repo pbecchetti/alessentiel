@@ -1,53 +1,66 @@
 ---
-import { getImage } from 'astro:assets';
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import ogSource from '../assets/images/elephants.jpg';
+import { getImage } from "astro:assets";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ogSource from "../assets/images/elephants.jpg";
 
 interface Props {
   title: string;
   description: string;
+  /** Empêche Google d'indexer la page (ex. page introuvable) */
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// Cloudflare Web Analytics (sans cookie, donc sans bandeau de consentement).
+// Coller ici le token fourni par Cloudflare : Analytics & Logs > Web Analytics > Add a site.
+// Tant qu'il est vide, aucun script n'est chargé.
+const cloudflareToken = "fb33485858fb48f0b6135580bac6f4f2";
 // Image affichée quand le lien est partagé (LinkedIn, Facebook, WhatsApp…)
-const og = await getImage({ src: ogSource, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const og = await getImage({
+  src: ogSource,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpg",
+});
 const ogImage = new URL(og.src, Astro.site);
 
 // Données structurées : aident Google à comprendre qui vous êtes et ce que vous proposez
 const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  '@id': 'https://alessentiel.fr/#entreprise',
-  name: 'A l’essentiel, ensemble',
-  url: 'https://alessentiel.fr/',
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://alessentiel.fr/#entreprise",
+  name: "A l’essentiel, ensemble",
+  url: "https://alessentiel.fr/",
   image: ogImage.href,
   description:
-    'Cabinet de conseil et formation sur mesure : management, relation client, vente, soft skills, accompagnement du changement.',
-  email: 'bruno.becchetti@gmail.com',
-  areaServed: { '@type': 'Country', name: 'France' },
-  knowsLanguage: 'fr',
+    "Cabinet de conseil et formation sur mesure : management, relation client, vente, soft skills, accompagnement du changement.",
+  email: "bruno.becchetti@gmail.com",
+  areaServed: { "@type": "Country", name: "France" },
+  knowsLanguage: "fr",
   founder: {
-    '@type': 'Person',
-    name: 'Bruno Becchetti',
-    jobTitle: 'Consultant en accompagnement du changement et formateur',
-    url: 'https://alessentiel.fr/qui-suis-je/',
-    sameAs: ['https://www.linkedin.com/in/bruno-becchetti-08199333/'],
+    "@type": "Person",
+    name: "Bruno Becchetti",
+    jobTitle: "Consultant en accompagnement du changement et formateur",
+    url: "https://alessentiel.fr/qui-suis-je/",
+    sameAs: ["https://www.linkedin.com/in/bruno-becchetti-08199333/"],
   },
   sameAs: [
-    'https://www.linkedin.com/in/bruno-becchetti-08199333/',
-    'https://www.facebook.com/Alessentielensemble/',
+    "https://www.linkedin.com/in/bruno-becchetti-08199333/",
+    "https://www.facebook.com/Alessentielensemble/",
   ],
   knowsAbout: [
-    'Formation management',
-    'Formation relation client',
-    'Formation vente et négociation',
-    'Soft skills',
-    'Accompagnement du changement',
-    'Ingénierie pédagogique',
-    'Formation de formateurs',
+    "Formation management",
+    "Formation relation client",
+    "Formation vente et négociation",
+    "Soft skills",
+    "Accompagnement du changement",
+    "Ingénierie pédagogique",
+    "Formation de formateurs",
   ],
 };
 ---
@@ -58,6 +71,7 @@ const jsonLd = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -75,6 +89,17 @@ const jsonLd = {
     <meta name="twitter:card" content="summary_large_image" />
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    {
+      import.meta.env.PROD && cloudflareToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cloudflareToken })}
+        />
+      )
+    }
   </head>
   <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
