@@ -1,0 +1,5 @@
+# Redirections Netlify : anciennes adresses WordPress vers le nouveau site (301 = définitif, conserve le référencement)
+/wp-admin/*        /   301
+/wp-login.php      /   301
+/feed/*            /   301
+/wp-content/*      /   301
