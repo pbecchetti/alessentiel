@@ -1,0 +1,88 @@
+---
+import Base from "../layouts/Base.astro";
+
+const email = "bruno.becchetti@gmail.com";
+---
+
+<Base
+  title="Mentions légales | A l'essentiel"
+  description="Mentions légales du site A l'essentiel, ensemble : éditeur, hébergeur, propriété intellectuelle et données personnelles."
+>
+  <section class="section">
+    <div class="wrap prose">
+      <h1>Mentions légales</h1>
+
+      <h2>Éditeur du site</h2>
+      <p>
+        <strong>A l’essentiel, ensemble</strong><br />
+        Bruno Becchetti, consultant et formateur<br />
+        Statut juridique : Auto-entrepreneur<br />
+        SIRET : 52279003000021<br />
+        Téléphone : <a href="tel:+33787141381">07 87 14 13 81</a><br />
+        E-mail : <a href={`mailto:${email}`}>{email}</a>
+      </p>
+      <p>
+        Déclaration d’activité enregistrée sous le numéro 91 34 06992 34 auprès
+        du préfet de région Languedoc-Roussillon. Cet enregistrement ne vaut pas
+        agrément de l’État.
+      </p>
+      <p>Directeur de la publication : Bruno Becchetti.</p>
+
+      <h2>Hébergement</h2>
+      <p>
+        Netlify, Inc.<br />
+        512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis<br />
+        <a href="https://www.netlify.com">www.netlify.com</a>
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L’ensemble des contenus de ce site (textes, images, logos, mise en page)
+        est protégé par le droit d’auteur. Toute reproduction ou diffusion,
+        totale ou partielle, sans autorisation écrite préalable est interdite.
+      </p>
+
+      <h2>Données personnelles</h2>
+      <p>
+        Ce site ne comporte pas de formulaire et ne collecte aucune donnée
+        personnelle permettant de vous identifier. Lorsque vous écrivez par
+        e-mail, vos coordonnées sont utilisées uniquement pour vous répondre et
+        ne sont jamais transmises à des tiers.
+      </p>
+      <p>
+        Conformément au Règlement général sur la protection des données (RGPD),
+        vous disposez d’un droit d’accès, de rectification et de suppression de
+        vos données. Pour l’exercer, écrivez à&nbsp;<a href={`mailto:${email}`}
+          >{email}</a
+        >. Vous pouvez également adresser une réclamation à la CNIL (<a
+          href="https://www.cnil.fr">cnil.fr</a
+        >).
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        Ce site n’utilise aucun cookie. La fréquentation est mesurée avec
+        Cloudflare Web Analytics, un outil qui ne dépose aucun cookie, ne suit
+        pas les visiteurs d’un site à l’autre et ne permet pas de vous
+        identifier. Il fournit uniquement des statistiques globales (nombre de
+        visites, pages consultées, provenance).
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 {
+    font-size: var(--step-3);
+  }
+  h2 {
+    font-size: var(--step-1);
+    margin-top: 2.5rem;
+  }
+  /* repère visuel des informations restant à fournir — à retirer une fois tout complété */
+  mark {
+    background: var(--sand);
+    color: var(--savanna-text);
+    padding: 0 0.25em;
+  }
+</style>

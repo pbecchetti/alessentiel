@@ -1,38 +1,69 @@
 ---
-const email = 'bruno.becchetti@gmail.com';
+const email = "bruno.becchetti@gmail.com";
+const phone = "07 87 14 13 81";
 // À remplacer par le lien d'un formulaire (Tally, Google Forms…) quand il existera
-const avisHref = `mailto:${email}?subject=${encodeURIComponent('Mon avis sur la formation')}`;
+const avisHref = `mailto:${email}?subject=${encodeURIComponent("Mon avis sur la formation")}`;
 ---
 
 <section id="contact" class="section section--sage">
   <div class="wrap contact">
     <h2>Parlons de votre projet</h2>
-    <p>Un besoin de formation, d’accompagnement ou de conseil ? Écrivez-moi, je vous réponds rapidement.</p>
-    <p>J’interviens partout en France, en présentiel dans vos locaux ou à distance.</p>
-    <a href={`mailto:${email}`} class="contact__email">{email}</a>
+    <p>
+      Un besoin de formation, d’accompagnement ou de conseil ? Appelez-moi ou
+      écrivez-moi, je vous réponds rapidement.
+    </p>
+    <p>
+      J’interviens partout en France, en présentiel dans vos locaux ou à
+      distance.
+    </p>
+    <div class="contact__moyens">
+      <a href="tel:+33787141381" class="contact__lien contact__lien--tel">{phone}</a>
+      <a href={`mailto:${email}`} class="contact__lien">{email}</a>
+    </div>
     <p class="contact__alt">
-      ou retrouvez-moi sur <a href="https://www.linkedin.com/in/bruno-becchetti-08199333/" rel="noopener">LinkedIn</a>
+      ou retrouvez-moi sur <a
+        href="https://www.linkedin.com/in/bruno-becchetti-08199333/"
+        rel="noopener">LinkedIn</a
+      >
     </p>
     <p class="contact__avis">
-      Vous avez suivi une de mes formations ? <a href={avisHref}>Laissez-moi votre avis</a>
+      Vous avez suivi une de mes formations ? <a href={avisHref}
+        >Laissez-moi votre avis</a
+      >
     </p>
   </div>
 </section>
 
 <style>
-  .contact { text-align: center; }
-  .contact p { color: var(--slate); }
-  .contact__email {
-    display: inline-block;
+  .contact {
+    text-align: center;
+  }
+  .contact p {
+    color: var(--slate);
+  }
+  .contact__moyens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
     margin-block: 1rem 1.5rem;
+  }
+  .contact__lien {
     font-family: var(--serif);
     font-style: italic;
-    font-size: var(--step-3);
+    font-size: clamp(1.875rem, 3.5vw, 2.25rem);
     color: var(--ink);
     overflow-wrap: anywhere;
   }
-  .contact__email:hover { color: var(--savanna-text); }
-  .contact__alt { font-size: var(--step--1); }
+  .contact__lien--tel {
+    font-size: var(--step-2);
+  }
+  .contact__lien:hover {
+    color: var(--savanna-text);
+  }
+  .contact__alt {
+    font-size: var(--step--1);
+  }
   .contact__avis {
     margin: 2.5rem auto 0;
     padding-top: 1.5rem;
