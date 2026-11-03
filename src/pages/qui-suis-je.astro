@@ -1,13 +1,104 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
+import portrait from '../assets/images/bruno-becchetti.png';
 ---
 
-<Base title="Qui suis-je – A l'essentiel" description="TODO : description de la page Qui suis-je">
+<Base
+  title="Qui suis-je – A l'essentiel"
+  description="Bruno Becchetti, consultant en accompagnement du changement et formateur : parcours, convictions et engagement."
+>
   <section class="section">
-    <div class="wrap prose">
-      <h1>Qui suis-je</h1>
-      <!-- TODO : reprendre le contenu de https://alessentiel.fr/qui-suis-je/ -->
-      <p>Contenu à venir.</p>
+    <div class="wrap qsj">
+      <Image
+        src={portrait}
+        alt="Portrait de Bruno Becchetti"
+        width={240}
+        densities={[1, 2]}
+        class="qsj__img"
+      />
+      <div class="prose">
+        <h1>Qui suis-je ?</h1>
+        <p>
+          Titulaire d’un diplôme de 3ᵉ cycle sur l’accompagnement des
+          organisations en mutation, j’ai saisi les opportunités d’avoir un
+          parcours professionnel riche et varié, sur des missions de manager des
+          ventes, de chef de projet, de consultant, de formateur et d’animateur
+          de réseaux sur divers domaines d’activités, et plus particulièrement le
+          management, la vente et la relation client.
+        </p>
+        <blockquote class="qsj__quote">
+          « Je suis convaincu qu’il existe en chacun un potentiel insoupçonné et
+          des ressources latentes inexploitées par un manque de confiance ou de
+          motivation, et qui ne demandent qu’à être révélées. »
+        </blockquote>
+        <p>
+          En privé, un engagement dans une association sportive rassemblant
+          d’anciens sportifs de haut niveau a confirmé mon goût pour les
+          relations humaines, la prise d’initiatives et le leadership.
+        </p>
+        <p>
+          Au fil des ans, ce capital expérience m’a amené à explorer d’autres
+          chemins.
+        </p>
+        <p>
+          Je propose désormais de mobiliser et d’exploiter mon expérience au
+          service des entreprises dans leurs projets de transformation et de
+          formation, en présentiel ou à distance.
+        </p>
+        <p class="qsj__motto">Oser la différence en allant à l’essentiel.</p>
+        <p class="qsj__sign">Bruno Becchetti</p>
+        <ul class="qsj__social">
+          <li><a href="https://www.linkedin.com/in/bruno-becchetti-08199333/">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/Alessentielensemble/">Facebook</a></li>
+        </ul>
+        <a href="/#contact" class="button">Me contacter</a>
+      </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .qsj {
+    display: grid;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (min-width: 60rem) {
+    .qsj {
+      grid-template-columns: 240px 1fr;
+    }
+  }
+  .qsj__img {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    width: min(100%, 240px);
+  }
+  .qsj__quote {
+    margin: 2rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--savanna);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--step-1);
+    line-height: 1.4;
+  }
+  .qsj__motto {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--step-2);
+    color: var(--savanna-text);
+    margin-top: 2rem;
+  }
+  .qsj__sign {
+    font-weight: 600;
+  }
+  .qsj__social {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+  }
+</style>

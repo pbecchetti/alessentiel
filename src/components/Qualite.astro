@@ -1,36 +1,64 @@
 ---
-import { Image } from 'astro:assets';
-import datadock from '../assets/images/Picto_datadocke.jpg';
+import { Image } from "astro:assets";
+import datadock from "../assets/images/Picto_datadocke.jpg";
 ---
 
-<section id="qualite" class="section section--mist">
+<section id="qualite" class="section">
   <div class="wrap qualite">
     <div class="prose">
       <h2>La démarche qualité</h2>
       <p>
-        La démarche qualité de Bruno Becchetti s’appuie sur une charte qualité et sur un dispositif qualité simple et
-        pragmatique, qui permet de mettre en place une démarche d’amélioration continue pour aller vers une organisation
-        qui se définit comme « apprenante ».
+        Ma démarche qualité s’appuie sur une charte qualité et sur un dispositif
+        qualité simple et pragmatique, qui permet de mettre en place une
+        démarche d’amélioration continue pour aller vers une organisation qui se
+        définit comme « apprenante ».
       </p>
       <p>
-        Ainsi, l’organisation axée sur l’apprentissage est construite comme un système écologique qui stimule
-        l’apprentissage continu à travers le travail.
+        Ainsi, l’organisation axée sur l’apprentissage est construite comme un
+        système écologique qui stimule l’apprentissage continu à travers le
+        travail.
       </p>
-      <a href="/ma-demarche-qualite/" class="button">Découvrir ma démarche qualité</a>
+      <a href="/ma-demarche-qualite/" class="button"
+        >Découvrir ma démarche qualité</a
+      >
     </div>
 
     <div class="datadock">
       <Image src={datadock} alt="Logo Datadock" width={160} />
-      <p><strong>Datadocké</strong><br />Formations certifiées Datadock, répondant à 6 critères de qualité.</p>
+      <p>
+        <strong>Datadocké</strong><br />Formations certifiées Datadock,
+        répondant à 6 critères de qualité.
+      </p>
     </div>
   </div>
 </section>
 
 <style>
-  .qualite { display: grid; gap: 3rem; align-items: center; }
-  @media (min-width: 60rem) { .qualite { grid-template-columns: 1.5fr 1fr; } }
-  .datadock { background: var(--paper); padding: 2rem; border-radius: 4px; }
-  .datadock img { margin-bottom: 1rem; }
-  .datadock p { margin: 0; font-size: var(--step--1); color: var(--slate); }
-  .datadock strong { color: var(--ink); }
+  .qualite {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 60rem) {
+    .qualite {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+  .datadock {
+    background: var(--mist);
+    padding: 2rem;
+    border-radius: 4px;
+  }
+  .datadock img {
+    margin-bottom: 1rem;
+    mix-blend-mode: multiply;
+  } /* fond blanc du jpg fondu dans le gris */
+  .datadock p {
+    margin: 0;
+    font-size: var(--step--1);
+    color: var(--slate);
+  }
+  .datadock strong {
+    color: var(--ink);
+  }
 </style>

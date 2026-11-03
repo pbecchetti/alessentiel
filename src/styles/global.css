@@ -8,6 +8,8 @@
   --savanna: #a8742a;      /* accent décoratif (filets, puces) */
   --savanna-text: #85591b; /* accent lisible pour les liens */
   --mist: #eef1ef;
+  --sand: #f5eee3;
+  --sage: #e8eee9;
   --paper: #ffffff;
 
   --sans: 'Instrument Sans Variable', system-ui, sans-serif;
@@ -22,7 +24,7 @@
 
   --wrap: 72rem;
   --gutter: clamp(1.25rem, 4vw, 2.5rem);
-  --section: clamp(4rem, 9vw, 7rem);
+  --section: clamp(2.5rem, 5vw, 4rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -53,6 +55,14 @@ a:hover { color: var(--ink); }
 .wrap { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
 .section { padding-block: var(--section); }
 .section--mist { background: var(--mist); }
+.section--sand { background: var(--sand); }
+.section--sage { background: var(--sage); }
+/* fond foncé : texte clair, accents dorés éclaircis pour rester lisibles */
+.section--ink { background: var(--ink); color: var(--paper); }
+.section--ink a { color: #e0b878; }
+.section--ink a:hover { color: var(--paper); }
+.section--ink .button { border-color: var(--paper); color: var(--paper); }
+.section--ink .button:hover { background: var(--paper); color: var(--ink); }
 .prose { max-width: 66ch; }
 
 .button {

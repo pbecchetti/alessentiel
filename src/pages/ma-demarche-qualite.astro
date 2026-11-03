@@ -1,13 +1,254 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
+
+const principes = [
+  "Expert dans mon domaine, je justifie d’une riche expérience dans le monde de l’entreprise.",
+  "J’ai une expérience en ingénierie pédagogique et maîtrise ainsi les différentes méthodes d’apprentissage et moyens pédagogiques pour les adapter à chaque contexte de formation. Je favorise l’interactivité.",
+  "Je partage les constats, les objectifs à atteindre et les livrables attendus.",
+  "J’élabore une offre et des préconisations sur mesure.",
+  "Cette offre est revue et validée avec chaque client.",
+  "Je suis rigoureux et sais développer mon savoir-faire et mon savoir-être dans tous mes actes professionnels.",
+  "Je développe une démarche d’auto-apprentissage et de développement permanent en m’appuyant sur de la formation, des recherches documentaires, des conférences, des réseaux et l’analyse de mes missions.",
+];
+
+const methode = [
+  "Rédaction d’une offre d’accompagnement pour chaque formation, présentation au client pour validation du contenu, de la méthode et des objectifs, et planification.",
+  "Réalisation d’un diagnostic individuel auprès de chaque stagiaire pour déterminer plus précisément les attentes et les besoins sur le thème.",
+  "Adaptation du contenu en fonction de l’analyse de ces diagnostics et validation avec le client.",
+  "Remise d’un passeport formation en début de formation, où chaque stagiaire est invité à évaluer son niveau sur chaque compétence travaillée pendant la formation. Ce tableau sera complété à l’issue de la formation en évaluant le niveau de compétences acquises grâce à la formation suivie.",
+  "Les actions sont des formations-actions, pour traduire dans les faits et les résultats les acquis des participants.",
+  "La formation a pour objectif d’apporter de nouvelles compétences : savoirs (connaissances) et/ou savoir-faire (techniques) et/ou savoir-être (comportements, attitudes).",
+  "En fin de formation, les stagiaires sont invités à déterminer leur plan d’actions pour ancrer les acquis et à évaluer la formation : de façon informelle, oralement au sein du groupe, et de façon formelle en complétant la fiche d’évaluation que je leur remets.",
+  "Ces évaluations font l’objet d’une double analyse : mon analyse, pour connaître le niveau de qualité atteint et en tirer les enseignements, et l’analyse avec et par le client, pour valider l’atteinte des objectifs et en tirer les enseignements. Systématiquement, en fin de session, un entretien avec le client permet de mesurer le niveau de satisfaction.",
+  "Selon le thème de formation retenu, je peux proposer un quiz en début et en fin de formation pour mesurer la progression. Je peux aussi proposer des QCM inter-séquences pour valider l’acquisition du contenu.",
+];
+
+const spirale = [
+  "Quiz en début de formation",
+  "Simulations du plus simple au plus complexe & stimulation multi-sensorielle",
+  "Auto-évaluation du participant : chacun apprend à s’auto-évaluer à chaque séquence",
+  "Mises en mouvement (animations, vidéos, ateliers, jeux de rôles, simulations…)",
+  "Travail de feed-back du groupe et du formateur",
+  "Apports sur les points abordés durant la simulation ou en situation – faire manipuler",
+  "Utiliser la répétition en la fractionnant pour ancrer les apprentissages",
+  "Respecter les rythmes d’apprentissage (10 minutes par séquence)",
+  "Axes de progrès : un plan individuel d’actions très précis car factuel",
+  "Retour sur ce plan, valorisation et capitalisation d’une simulation à l’autre",
+  "Plan d’action de fin de formation mis en place dans le cadre de travail quotidien",
+];
 ---
 
-<Base title="Ma démarche qualité – A l'essentiel" description="TODO : description de la page Ma démarche qualité">
+<Base
+  title="Ma démarche qualité – A l'essentiel"
+  description="La démarche qualité de Bruno Becchetti, formateur : un dispositif qualité simple et pragmatique et une charte qualité autour de la pédagogie et des apprentissages."
+>
   <section class="section">
     <div class="wrap prose">
       <h1>Ma démarche qualité</h1>
-      <!-- TODO : reprendre le contenu de https://alessentiel.fr/ma-demarche-qualite/ -->
-      <p>Contenu à venir.</p>
+      <p class="lead">
+        Ma démarche qualité s’appuie sur une charte qualité et sur un
+        dispositif qualité simple et pragmatique, qui permet de mettre
+        en place une démarche d’amélioration continue pour aller vers une
+        organisation qui se définit comme « apprenante ».
+      </p>
+      <p>
+        Ainsi, l’organisation axée sur l’apprentissage est construite comme un
+        système écologique qui stimule l’apprentissage continu à travers le
+        travail.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap prose">
+      <h2>Le dispositif qualité</h2>
+
+      <h3>
+        Des principes et des engagements qui guident l’action au quotidien
+      </h3>
+      <ul class="list">
+        {principes.map((p) => <li>{p}</li>)}
+      </ul>
+
+      <h3>
+        Une méthode et un processus pour valider la démarche qualité et garantir
+        l’atteinte des objectifs pour chaque client
+      </h3>
+      <ul class="list">
+        {methode.map((m) => <li>{m}</li>)}
+      </ul>
+
+      <h3>Des obligations éthiques</h3>
+      <p>
+        J’ai également des obligations éthiques vis-à-vis de mes clients. En
+        ce sens, je connais et respecte la réglementation en vigueur. Je réalise
+        des missions qui entrent dans mon champ de compétences. Je respecte
+        l’intégrité des personnes et suis tenu au secret professionnel. Je
+        m’attache à facturer au juste prix. Je maîtrise les jalons de fin de
+        phases, les bilans et le suivi des progressions.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap prose">
+      <h2>La charte qualité – pédagogie & apprentissages</h2>
+      <p class="lead">
+        Le dispositif qualité défini ci-dessus est renforcé par une charte
+        qualité autour de la pédagogie et des apprentissages.
+      </p>
+      <p>
+        Titulaire d’un diplôme de 3ᵉ cycle sur l’accompagnement des
+        organisations en mutation, j’ai saisi les opportunités
+        d’avoir un parcours professionnel riche et varié, sur des missions de
+        manager, de chef de projet, de consultant, de formateur et d’animateur
+        de réseaux, particulièrement dans les domaines de la vente et de la
+        relation de service au client.
+      </p>
+      <p>
+        Concernant les apprentissages, je prône une posture tournée vers le «
+        sur mesure », qui combine le conseil et la formation en s’appuyant sur
+        un état des lieux issu de l’écoute des attentes du client, de l’écoute
+        de ses collaborateurs, de ses particularités et de sa culture, pour
+        définir un accompagnement, un programme de formation-action coconstruit,
+        adapté à ses besoins, à son organisation et à ses pratiques.
+      </p>
+
+      <h3>Ce que nous apprennent les neurosciences</h3>
+      <p>
+        Les derniers enseignements des neurosciences apportent de nouveaux
+        horizons sur les apprentissages et, pour ce qui est de l’apprentissage
+        des adultes, ces découvertes s’appliquent de façon opérationnelle en
+        proposant des améliorations de l’apprentissage et de la formation.
+      </p>
+      <p>
+        Ainsi, multiplier les modalités sensorielles facilite l’attention et la
+        mémorisation chez tous les apprenants. En misant en priorité sur le «
+        visuel », je suis adepte d’une pédagogie qui fait appel à divers
+        supports, adaptés aux réalités de la société, stimulant la réflexion et
+        la créativité : une pédagogie par l’expérience, la répétition et
+        l’acquisition progressive des compétences sur les différents thèmes.
+      </p>
+      <p>
+        D’autre part, nous apprenons tous de manière différente : il n’y a pas
+        une seule et unique manière d’apprendre, et aucune n’est meilleure ou
+        pire qu’une autre. Plus les différents sens des apprenants sont
+        stimulés, plus vous aurez de chances que votre message passe… et soit
+        retenu !
+      </p>
+
+      <h3>Une pédagogie « en spirale »</h3>
+      <p>
+        Tout en privilégiant le « visuel », je propose une pédagogie basée sur
+        un travail « en spirale » :
+      </p>
+      <ol class="spirale">
+        {spirale.map((s) => <li>{s}</li>)}
+      </ol>
+      <p>
+        Chaque formation est pratique grâce à des simulations à partir des
+        propres exemples professionnels des participants. Je travaille soit sur
+        les cas réels présentés par les participants, soit à partir de
+        cartes-scénarii issues de mes expériences et immersions terrain.
+      </p>
+      <p>
+        À un cran supérieur, une formation « in vivo » : le training (la
+        formation-action), avec un apprentissage en situation réelle qui
+        facilite l’acquisition des automatismes et des réflexes associés aux
+        actions quotidiennes. Une implication réelle des managers et des
+        soutiens permet de prolonger les apprentissages.
+      </p>
+      <p>
+        Les participants sont pris en charge et accompagnés ; tous sont amenés à
+        faire les simulations. Les feed-back se font de façon factuelle : la
+        personne n’est donc pas atteinte dans son intégrité.
+      </p>
+      <p>
+        À l’issue de la formation, les participants seront en phase
+        d’acquisition de compétences ; l’utilisation au quotidien et la
+        répétition vont consolider ces nouvelles compétences.
+      </p>
+
+      <h3>L’innovation en formation</h3>
+      <p>
+        Enfin, le dernier point que je veux partager est celui de
+        l’innovation en formation. Ces dernières années, le développement
+        extraordinaire des nouvelles technologies a révolutionné de façon
+        irrémédiable l’accès à l’information et au savoir.
+      </p>
+      <p>
+        Le monde de la formation ne peut pas l’ignorer et doit s’adapter. Je
+        m’attache à introduire de l’innovation dans chaque projet qui m’est
+        confié, que ce soit dans les méthodes, les principes ou les outils. Par
+        exemple, je peux utiliser le média vidéo, le digital
+        (élaboration de contenus e-learning), l’apprentissage actif par le
+        questionnement, la correction puis l’explication systématique de chaque
+        point clé à mémoriser, avec une identification des caractéristiques de
+        l’utilisateur compte tenu de chaque réponse qu’il donne.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--mist">
+    <div class="wrap prose">
+      <blockquote class="quote">
+        « Je suis convaincu qu’il existe en chacun un potentiel
+        insoupçonné et des ressources latentes inexploitées par un manque de
+        confiance ou de motivation, et qui ne demandent qu’à être révélées. »
+      </blockquote>
+      <p>
+        Ma valeur ajoutée réside dans ma capacité à bâtir des dispositifs
+        d’apprentissage diversifiés et adaptés à chaque public, et le plus
+        souvent possible « sur mesure ».
+      </p>
+      <p>
+        En conclusion, je conçois des formations pour favoriser la
+        prise de conscience, donner du sens et développer durablement les
+        compétences.
+      </p>
+      <a href="/#contact" class="button">Me contacter</a>
     </div>
   </section>
 </Base>
+
+<style>
+  h1 {
+    font-size: var(--step-3);
+  }
+  h3 {
+    margin-top: 2.5rem;
+  }
+  .lead {
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+  .list {
+    padding-left: 1.25rem;
+  }
+  .list li {
+    margin-bottom: 0.6em;
+  }
+  .list li::marker {
+    color: var(--savanna);
+  }
+  .spirale {
+    padding-left: 1.75rem;
+    margin: 0 0 1.5em;
+  }
+  .spirale li {
+    margin-bottom: 0.4em;
+  }
+  .spirale li::marker {
+    color: var(--savanna-text);
+    font-weight: 600;
+  }
+  .quote {
+    margin: 0 0 2rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--savanna);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--step-2);
+    line-height: 1.35;
+  }
+</style>

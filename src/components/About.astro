@@ -38,14 +38,33 @@ import portrait from "../assets/images/bruno-becchetti.png";
         class="approche__img"
       />
     </div>
+  </div>
+</section>
 
+<section id="qui-suis-je" class="section section--ink">
+  <div class="wrap">
     <div class="bio">
-      <Image
-        src={portrait}
-        alt="Portrait de Bruno Becchetti"
-        width={280}
-        class="bio__img"
-      />
+      <div class="bio__side">
+        <Image
+          src={portrait}
+          alt="Portrait de Bruno Becchetti"
+          width={180}
+          densities={[1, 2]}
+          class="bio__img"
+        />
+        <a
+          href="https://www.linkedin.com/in/bruno-becchetti-08199333/"
+          class="linkedin"
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"
+            />
+          </svg>
+          LinkedIn
+        </a>
+      </div>
       <div class="prose">
         <h3>
           Bruno Becchetti, consultant en accompagnement du changement et
@@ -84,7 +103,6 @@ import portrait from "../assets/images/bruno-becchetti.png";
     align-items: center;
   }
   .bio {
-    margin-top: var(--section);
     align-items: start;
   }
   @media (min-width: 60rem) {
@@ -92,17 +110,37 @@ import portrait from "../assets/images/bruno-becchetti.png";
       grid-template-columns: 1.2fr 1fr;
     }
     .bio {
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 180px 1fr;
     }
   }
   .approche__img {
     border-radius: 4px;
   }
+  .bio__side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #70b5f9; /* bleu LinkedIn éclairci pour le fond foncé */
+    font-size: var(--step--1);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .linkedin:hover {
+    text-decoration: underline;
+  }
   .bio__img {
     border-radius: 50%;
     aspect-ratio: 1;
     object-fit: cover;
-    width: min(100%, 280px);
+    width: 180px;
+    outline: 2px solid var(--savanna);
+    outline-offset: 6px;
   }
   .bio h3 {
     font-size: var(--step-2);

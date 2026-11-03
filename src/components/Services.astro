@@ -42,8 +42,8 @@ const themes = [
 <section id="services" class="section">
   <div class="wrap">
     <div class="intro">
+      <Image src={themesImg} alt="" width={170} densities={[1, 2]} class="intro__img" />
       <h2>6 thèmes pour vous accompagner</h2>
-      <Image src={themesImg} alt="" width={320} class="intro__img" />
     </div>
 
     <div class="themes">
@@ -67,12 +67,11 @@ const themes = [
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    gap: 1.5rem 3rem;
     margin-bottom: 3rem;
   }
   .intro h2 { max-width: 16ch; margin: 0; }
-  .intro__img { width: min(100%, 320px); }
+  .intro__img { width: 170px; }
 
   .themes {
     display: grid;
