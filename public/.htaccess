@@ -1,0 +1,2 @@
+# Hébergement OVH (Apache) : affiche la page du site pour les adresses inexistantes
+ErrorDocument 404 /404.html

@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Page introuvable | A l'essentiel"
+  description="Cette page n'existe pas ou a été déplacée."
+  noindex
+>
+  <section class="section introuvable">
+    <div class="wrap">
+      <p class="introuvable__code" aria-hidden="true">404</p>
+      <h1>Cette page est introuvable</h1>
+      <p class="introuvable__texte">
+        Elle n’existe pas ou a été déplacée. Pas d’inquiétude : allons à
+        l’essentiel, ensemble.
+      </p>
+      <ul class="introuvable__liens">
+        <li><a href="/" class="button">Retour à l’accueil</a></li>
+        <li><a href="/#services">Les formations</a></li>
+        <li><a href="/qui-suis-je/">Qui suis-je</a></li>
+        <li><a href="/#contact">Me contacter</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .introuvable {
+    min-height: calc(100svh - 4rem - 6rem);
+    display: grid;
+    align-items: center;
+    text-align: center;
+  }
+  .introuvable__code {
+    margin: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(5rem, 15vw, 9rem);
+    line-height: 1;
+    color: var(--savanna);
+  }
+  h1 {
+    font-size: var(--step-3);
+  }
+  .introuvable__texte {
+    color: var(--slate);
+    max-width: 40ch;
+    margin-inline: auto;
+  }
+  .introuvable__liens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 1.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+  }
+</style>
