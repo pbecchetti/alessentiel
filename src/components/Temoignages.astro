@@ -1,0 +1,56 @@
+---
+import { avis } from '../data/avis';
+---
+
+{
+  avis.length > 0 && (
+    <section id="avis" class="section section--sand">
+      <div class="wrap">
+        <h2>Ils m’ont fait confiance</h2>
+        <div class="avis">
+          {avis.map((a) => (
+            <figure class="avis__item">
+              <blockquote>« {a.texte} »</blockquote>
+              <figcaption>
+                <strong>{a.auteur}</strong>
+                {a.fonction && <span>{a.fonction}</span>}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+  .avis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 2rem;
+  }
+  .avis__item {
+    margin: 0;
+    padding: 1.75rem;
+    background: var(--paper);
+    border-top: 2px solid var(--savanna);
+    border-radius: 4px;
+  }
+  blockquote {
+    margin: 0 0 1.25rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+  figcaption {
+    font-size: var(--step--1);
+  }
+  figcaption span {
+    display: block;
+    color: var(--slate);
+  }
+</style>

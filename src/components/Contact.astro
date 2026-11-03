@@ -1,5 +1,7 @@
 ---
 const email = 'bruno.becchetti@gmail.com';
+// À remplacer par le lien d'un formulaire (Tally, Google Forms…) quand il existera
+const avisHref = `mailto:${email}?subject=${encodeURIComponent('Mon avis sur la formation')}`;
 ---
 
 <section id="contact" class="section section--sage">
@@ -9,6 +11,9 @@ const email = 'bruno.becchetti@gmail.com';
     <a href={`mailto:${email}`} class="contact__email">{email}</a>
     <p class="contact__alt">
       ou retrouvez-moi sur <a href="https://www.linkedin.com/in/bruno-becchetti-08199333/" rel="noopener">LinkedIn</a>
+    </p>
+    <p class="contact__avis">
+      Vous avez suivi une de mes formations ? <a href={avisHref}>Laissez-moi votre avis</a>
     </p>
   </div>
 </section>
@@ -27,4 +32,11 @@ const email = 'bruno.becchetti@gmail.com';
   }
   .contact__email:hover { color: var(--savanna-text); }
   .contact__alt { font-size: var(--step--1); }
+  .contact__avis {
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(30 43 48 / 0.12);
+    max-width: 32rem;
+    font-size: var(--step--1);
+  }
 </style>
