@@ -13,6 +13,7 @@ import elephants from "../assets/images/elephants.jpg";
     loading="eager"
     fetchpriority="high"
   />
+  <div class="hero__veil" aria-hidden="true"></div>
   <div class="wrap hero__content">
     <h1>Formations et conseil en organisation et méthodes</h1>
     <p class="hero__proverb">
@@ -48,6 +49,22 @@ import elephants from "../assets/images/elephants.jpg";
     height: 100%;
     object-fit: cover;
     opacity: 0.5;
+  }
+  /* voile blanc derrière le texte : garde le titre lisible devant les zones sombres de la photo */
+  .hero__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgb(255 255 255 / 0.75) 0%,
+      rgb(255 255 255 / 0.6) 45%,
+      transparent 80%
+    );
+  }
+  @media (max-width: 48rem) {
+    .hero__veil {
+      background: rgb(255 255 255 / 0.55);
+    }
   }
   .hero::before {
     content: "";

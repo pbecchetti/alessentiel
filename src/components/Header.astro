@@ -12,13 +12,47 @@ const links = [
 <header class="header">
   <div class="wrap header__inner">
     <a href="/" class="logo">A l'essentiel</a>
-    <nav aria-label="Navigation principale">
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="nav-principale"
+    >
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      Menu
+    </button>
+    <nav id="nav-principale" aria-label="Navigation principale">
       <ul>
         {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
       </ul>
     </nav>
   </div>
 </header>
+
+<script>
+  // Menu repliable sur mobile. Sans JavaScript, le menu reste simplement affiché.
+  const header = document.querySelector<HTMLElement>('.header');
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.getElementById('nav-principale');
+
+  if (header && toggle && nav) {
+    header.classList.add('header--js');
+    const setOpen = (open: boolean) => toggle.setAttribute('aria-expanded', String(open));
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    nav.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>
 
 <style>
   .header {
@@ -35,7 +69,7 @@ const links = [
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem 2rem;
-    padding-block: 1rem;
+    padding-block: 0.5rem;
   }
   .logo {
     font-size: var(--step-1);
@@ -46,16 +80,45 @@ const links = [
   ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25rem 1.5rem;
+    gap: 0 1rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
   nav a {
+    display: block;
+    /* zone cliquable confortable au doigt (≥ 44 px de haut) */
+    padding: 0.75rem 0.25rem;
     color: var(--slate);
     text-decoration: none;
     font-size: var(--step--1);
     font-weight: 500;
   }
   nav a:hover { color: var(--ink); }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--mist);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--step--1);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Mobile : menu replié derrière le bouton */
+  @media (max-width: 47.99rem) {
+    .header--js .menu-toggle { display: inline-flex; }
+    .header--js nav { display: none; width: 100%; }
+    .header--js .menu-toggle[aria-expanded='true'] + nav { display: block; }
+    .header--js ul { flex-direction: column; padding-bottom: 0.5rem; }
+    .header--js li + li { border-top: 1px solid var(--mist); }
+    .header--js nav a { font-size: var(--step-0); }
+  }
 </style>
