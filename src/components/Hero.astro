@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import elephants from "../assets/images/elephants.jpg";
+import elephants from "../assets/images/elephants-bw.jpg";
 ---
 
 <section class="hero">
@@ -49,6 +49,21 @@ import elephants from "../assets/images/elephants.jpg";
     height: 100%;
     object-fit: cover;
     opacity: 0.5;
+  }
+  /* grand écran : l'image ne s'étire plus au-delà de 75rem et ses bords se fondent dans le blanc */
+  @media (min-width: 75rem) {
+    .hero__bg {
+      left: 50%;
+      width: 75rem;
+      transform: translateX(-50%);
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 15%,
+        #000 85%,
+        transparent
+      );
+    }
   }
   /* voile blanc derrière le texte : garde le titre lisible devant les zones sombres de la photo */
   .hero__veil {
