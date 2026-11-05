@@ -34,7 +34,7 @@ import portrait from "../assets/images/bruno-becchetti.png";
         src={atelier}
         alt="Groupe en atelier de travail autour d’une table"
         widths={[480, 800]}
-        sizes="(min-width: 60rem) 40vw, 100vw"
+        sizes="40vw"
         class="approche__img"
       />
     </div>
@@ -115,6 +115,13 @@ import portrait from "../assets/images/bruno-becchetti.png";
   }
   .approche__img {
     border-radius: 4px;
+    /* Masquée sur mobile/tablette : visible uniquement en mise en page 2 colonnes */
+    display: none;
+  }
+  @media (min-width: 60rem) {
+    .approche__img {
+      display: block;
+    }
   }
   .bio__side {
     display: flex;

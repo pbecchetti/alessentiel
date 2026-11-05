@@ -4,6 +4,7 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ogSource from "../assets/images/elephants-bw.jpg";
+import faviconSource from "../assets/images/favicon.jpg";
 
 interface Props {
   title: string;
@@ -14,6 +15,8 @@ interface Props {
 
 const { title, description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const favicon32 = await getImage({ src: faviconSource, width: 32, height: 32, format: "png" });
+const favicon180 = await getImage({ src: faviconSource, width: 180, height: 180, format: "png" });
 
 // Cloudflare Web Analytics (sans cookie, donc sans bandeau de consentement).
 // Coller ici le token fourni par Cloudflare : Analytics & Logs > Web Analytics > Add a site.
@@ -75,7 +78,8 @@ const jsonLd = {
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={favicon32.src} type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href={favicon180.src} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />
